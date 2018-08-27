@@ -1,9 +1,17 @@
 <%= provide(:title, 'Lists') %>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="text-center col-md-6 col-md-offset-3">
     <h1>Todo Lists</h1>
     
+    <hr>
+    <% @lists.each do |list| %>
+      <ul><%= link_to list.title, list %></ul>
+    <% end %>
     
+    <hr>
+    <p>
+      <%= link_to "New Todo List", new_list_path %>
+    </p>
   </div>
 </div>

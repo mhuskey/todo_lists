@@ -1,9 +1,13 @@
 <%= provide(:title, 'New Todo List') %>
+<%= provide(:button_text, 'Create List') %>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="text-center col-md-6 col-md-offset-3">
     <h1>New Todo List</h1>
-    
-    
+    <%= render 'form' %>
+    <br />
+    <p>
+      <%= link_to "Back", root_path %>
+    </p>
   </div>
 </div>

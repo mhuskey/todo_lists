@@ -1,9 +1,13 @@
-<%= provide(:title, 'Edit' @list.title) %>
+<%= provide(:title, 'Edit List') %>
+<%= provide(:button_text, 'Update List') %>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>Edit list: <%= @list.title %></h1>
-    
-    
+  <div class="text-center col-md-6 col-md-offset-3">
+    <h1>Edit <%= @list.title %></h1>
+    <%= render 'form' %>
+    <br />
+    <p>
+      <%= link_to "Cancel", @list %>
+    </p>
   </div>
 </div>
