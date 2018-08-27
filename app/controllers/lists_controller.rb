@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
   
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  
   def index
     @lists = List.all
   end
@@ -27,21 +29,26 @@ class ListsController < ApplicationController
   end
   
   def update
+    if @list.update(list_params)
+      flash[:success] = "List updated"
+      redirect_to @list
+    else
+      render 'edit'
+    end
   end
   
   def destroy
-    if @list = List.find(params[:id])
-      @list.destroy
-      flash[:success] = "Todo list deleted"
-      redirect_to root_url
-    else
-      flash[:danger] = "Problem deleting list"
-      redirect_to @list
-    end
+    @list.destroy
+    flash[:success] = "Todo list deleted"
+    redirect_to root_url
   end
   
   
   private
+    
+    def set_list
+      @list = List.find(params[:id])
+    end
     
     def list_params
       params.require(:list).permit(:title)
