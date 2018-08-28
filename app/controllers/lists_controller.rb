@@ -38,8 +38,11 @@ class ListsController < ApplicationController
   end
   
   def destroy
-    @list.destroy
-    flash[:success] = "Todo list deleted"
+    if @list.destroy
+      flash[:success] = "Todo list deleted"
+    else
+      flash[:danger]  = "Error deleting todo list"
+    end
     redirect_to root_url
   end
   

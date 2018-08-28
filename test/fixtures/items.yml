@@ -2,8 +2,10 @@
 
 one:
   task: MyString
+  complete: false
   list: one
 
 two:
   task: MyString
+  complete: false
   list: two

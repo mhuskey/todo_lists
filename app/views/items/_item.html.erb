@@ -1,1 +1,20 @@
-<ul><%= item.task %></ul>
+<% if item.completed? %>
+  <div class="complete">
+    <hr><br />
+    <%= link_to complete_list_item_path(@list, item.id), method: :patch do %><span class="transparent"><strike><%= item.task %></strike></span>
+    <% end %>
+    <%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </div>
+  
+<% else %>
+  <div class="incomplete">
+    <hr><br />
+    <%= link_to complete_list_item_path(@list, item.id), method: :patch do %><%= item.task %>
+    <% end %>
+    <%= link_to list_item_path(@list, item.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </div>
+<% end %>

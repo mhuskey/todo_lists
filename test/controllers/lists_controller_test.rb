@@ -14,21 +14,43 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should get show" do
-    get list_url(@list)
+    get list_path(@list)
     assert_response :success
     assert_select "title", "#{@list.title}" + " | #{@base_title}"
   end
   
   test "should get new" do
-    get new_list_url
+    get new_list_path
     assert_response :success
     assert_select "title", "New Todo List" + " | #{@base_title}"
   end
   
   test "should get edit" do
-    get edit_list_url(@list)
+    get edit_list_path(@list)
     assert_response :success
     assert_select "title", "Edit List" + " | #{@base_title}"
+  end
+  
+  test "should create list" do
+    assert_difference 'List.count' do
+      post lists_path, params: { list: { title: "New Test List" } }
+    end
+    assert_redirected_to list_path(List.last)
+    assert_not flash.empty?
+  end
+  
+  test "should update list" do
+    patch list_path(@list), params: { list: { title: "New Title" } }
+    assert_redirected_to list_path(@list)
+    assert_not flash.empty?
+  end
+  
+  test "should destroy list" do
+    assert_difference 'List.count', -1 do
+      delete list_path(@list)
+    end
+    assert_redirected_to root_path
+    assert_not flash.empty?
   end
   
 end

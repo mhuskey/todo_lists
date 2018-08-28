@@ -5,12 +5,30 @@ class ItemsController < ApplicationController
   
   def create
     @item = @list.items.create(item_params)
+    if @item.save
+      flash[:success] = "Todo item created"
+    else
+      flash[:danger]   = "Error creating todo item"
+    end
     redirect_to @list
   end
   
   def destroy
-    @item.destroy
-    flash[:success] = "Todo item deleted"
+    if @item.nil?
+      redirect_to @list
+    else
+      if @item.destroy
+        flash[:success] = "Todo item deleted"
+      else
+        flash[:danger]   = "Error deleting todo item"
+      end
+      redirect_to @list
+    end
+  end
+  
+  def complete
+    @item.toggle_complete
+    redirect_to @list
   end
   
   
@@ -21,7 +39,7 @@ class ItemsController < ApplicationController
     end
     
     def set_item
-      @item = @list.items.find(params[:id])
+      @item = @list.items.find_by(params[:id])
     end
     
     def item_params
