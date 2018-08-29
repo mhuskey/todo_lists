@@ -3,7 +3,21 @@
 @import "font-awesome";
 
 
+$black-medium-light: #2d2d2d;
+$gray-light: #efefef;
+$blue-bright: #1f5cf4;
+$purple-lilac: #ab5e98;
+$blue-purple: #5845ec;
+
+
 /* universal */
+
+body, html {
+  height: 100%;
+  font-family: "system-ui", sans-serif;
+  color: $gray-light;
+  background: linear-gradient($purple-lilac, $blue-purple);
+}
 
 body {
   padding: 60px;
@@ -22,6 +36,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  color: $gray-light;
 }
 
 h1 {
@@ -44,8 +59,48 @@ ul {
   padding: 3px 0;
 }
 
+a {
+  color: $blue-bright;
+}
+
+a:focus, a:hover, a:active, a:visited {
+  position: relative;
+  background: transparent;
+  color: $blue-bright;
+}
+
+.lists {
+  background: rgba(239, 239, 239, .3);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: .7rem;
+}
+
+
+/* items */
+
+.items {
+  font-size: 1.2em;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+  background-color: #1f5cf4 !important;
+}
+
+.transparent {
+  opacity: 0.45;
+}
+
+.fa-trash {
+  float: right;
+}
+
 
 /* forms */
+
+.forms {
+  font-size: 1.3em;
+  text-align: center;
+}
 
 #error_explanation {
   color: red;
