@@ -14,16 +14,12 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    if @item.nil?
-      redirect_to @list
+    if @item.destroy
+      flash[:success] = "Todo item deleted"
     else
-      if @item.destroy
-        flash[:success] = "Todo item deleted"
-      else
-        flash[:danger]   = "Error deleting todo item"
-      end
-      redirect_to @list
+      flash[:danger]   = "Error deleting todo item"
     end
+    redirect_to @list
   end
   
   def complete
@@ -39,7 +35,7 @@ class ItemsController < ApplicationController
     end
     
     def set_item
-      @item = @list.items.find_by(params[:id])
+      @item = @list.items.find(params[:id])
     end
     
     def item_params
