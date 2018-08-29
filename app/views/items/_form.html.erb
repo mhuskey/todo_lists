@@ -1,6 +1,5 @@
 <%= form_for([@list, @list.items.build]) do |f| %>
-  <%= f.label :task %>
-  <%= f.text_field :task, class: "form-control" %>
+  <%= f.text_field :task, placeholder: "New task...", class: "form-control text-center" %>
   
   <br />
   <%= f.submit "Add Task", class: "btn btn-primary" %>

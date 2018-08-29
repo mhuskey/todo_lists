@@ -37,12 +37,14 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to list_path(List.last)
     assert_not flash.empty?
+    assert_select "title", "New Test List" + " } #{@base_title}"
   end
   
   test "should update list" do
     patch list_path(@list), params: { list: { title: "New Title" } }
     assert_redirected_to list_path(@list)
     assert_not flash.empty?
+    assert_select "title", "New Title" + " } #{@base_title}"
   end
   
   test "should destroy list" do

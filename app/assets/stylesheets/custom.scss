@@ -69,10 +69,15 @@ a:focus, a:hover, a:active, a:visited {
   color: $blue-bright;
 }
 
+.new_list {
+  font-weight: bold;
+}
+
 .lists {
   background: rgba(239, 239, 239, .3);
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: .7rem;
+  padding: 8px 10px;
 }
 
 .edit_links {
@@ -83,11 +88,7 @@ a:focus, a:hover, a:active, a:visited {
 /* items */
 
 .items {
-  font-size: 1.2em;
-}
-
-.btn-primary, .btn-primary:active, .btn-primary:visited {
-  background-color: #1f5cf4 !important;
+  font-size: 1.3em;
 }
 
 .transparent {
@@ -104,6 +105,10 @@ a:focus, a:hover, a:active, a:visited {
 .forms {
   font-size: 1.3em;
   text-align: center;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+  background-color: $blue-bright !important;
 }
 
 #error_explanation {

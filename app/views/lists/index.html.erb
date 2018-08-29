@@ -7,10 +7,10 @@
     <hr>
     <% @lists.each do |list| %>
       <ul><%= link_to list.title, list %></ul>
+      <hr>
     <% end %>
     
-    <hr>
-    <p>
+    <p class="new_list">
       <%= link_to "New Todo List", new_list_path %>
     </p>
   </div>

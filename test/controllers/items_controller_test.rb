@@ -21,4 +21,18 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
   
+  test "should mark item as complete and then as incomplete" do
+    assert_not @item.completed?
+    # toggle as complete
+    patch complete_list_item_path(@list, @item.id)
+    assert_redirected_to list_path(@list)
+    @item.reload.complete
+    assert @item.completed?
+    # toggle as incomplete
+    patch complete_list_item_path(@list, @item.id)
+    assert_redirected_to list_path(@list)
+    @item.reload.complete
+    assert_not @item.completed?
+  end
+  
 end

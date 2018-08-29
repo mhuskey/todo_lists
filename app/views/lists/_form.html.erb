@@ -1,8 +1,7 @@
 <%= form_for(@list) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control", autofocus: true %>
+  <%= f.text_field :title, placeholder: "Todo list title...", class: "form-control text-center", autofocus: true %>
   
   <br />
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
