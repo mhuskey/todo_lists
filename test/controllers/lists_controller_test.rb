@@ -32,17 +32,28 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should create list" do
+    title = "New Test List"
     assert_difference 'List.count' do
-      post lists_path, params: { list: { title: "New Test List" } }
+      post lists_path, params: { list: { title: title } }
     end
     assert_redirected_to list_path(List.last)
     assert_not flash.empty?
+    new_list = List.last
+    assert_equal new_list.title, title
+    get list_path(new_list)
+    assert_select "title", "#{title}" + " | #{@base_title}"
   end
   
-  test "should update list" do
-    patch list_path(@list), params: { list: { title: "New Title" } }
+  test "should edit list" do
+    title = "Edited Title"
+    patch list_path(@list), params: { list: { title: title } }
     assert_redirected_to list_path(@list)
     assert_not flash.empty?
+    @list.reload
+    assert_equal @list.title, title
+    # Check that the title of the page is updated to the new title
+    get list_path(@list)
+    assert_select "title", "#{title}" + " | #{@base_title}"
   end
   
   test "should destroy list" do
