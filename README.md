@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Todo Lists is a web application using Ruby on Rails.
 
-Things you may want to cover:
+## Features
+Quickly create, edit, or delete todo lists:
 
-* Ruby version
+Create, edit, or delete todo tasks for your todo lists, and cross them off as you finish them:
 
-* System dependencies
+---
 
-* Configuration
+## Usage
+1. Clone the app:
+ `git clone https://github.com/mhuskey/todo_lists.git`
+2. Install gem dependencies:
+`bundle install`
+3. Migrate the databases:
+`rails db:migrate`
+4. Start the rails server:
+`rails server`
+5. Open your browser to the local address:
+`http://0.0.0.0:3000/`
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
