@@ -6,10 +6,9 @@ Todo Lists is a web application using Ruby on Rails.
 Quickly create, edit, or delete todo lists:
 <img src="https://github.com/mhuskey/todo_lists/blob/master/app/assets/images/screenshots/Todo%20Lists_01.png" />
 
-View, create, edit, or delete todo tasks for your todo lists:
 <img src="https://github.com/mhuskey/todo_lists/blob/master/app/assets/images/screenshots/Todo%20Lists_02.png" />
 
-Cross tasks off as you finish them:
+View, add, edit, delete, or cross tasks off as you finish them:
 <img src="https://github.com/mhuskey/todo_lists/blob/master/app/assets/images/screenshots/Todo%20Lists_03.png" />
 
 ---
